@@ -23,12 +23,38 @@
         <div class="progress-wrap">
           <div class="progress-text">
             <span id="progressCount">0/30 days complete</span>
-            <button id="resetBtn" type="button">Reset Progress</button>
+            <div class="actions">
+              <button id="exportBtn" type="button">Export Progress</button>
+              <button id="importBtn" type="button">Import Progress</button>
+              <button id="resetBtn" type="button">Reset Progress</button>
+            </div>
+            <input id="importFile" type="file" accept="application/json" hidden />
           </div>
           <div class="progress-bar-bg">
             <div class="progress-bar-fill" id="progressFill"></div>
           </div>
         </div>
+      </section>
+
+      <section class="support-cards">
+        <article class="card">
+          <h2>Before You Start (Safety)</h2>
+          <ul class="meta-checklist">
+            <li><label><input type="checkbox" class="meta-task" data-id="starter-1" /> Use a dedicated learning email for AWS account.</label></li>
+            <li><label><input type="checkbox" class="meta-task" data-id="starter-2" /> Enable MFA on root account and never use root for daily work.</label></li>
+            <li><label><input type="checkbox" class="meta-task" data-id="starter-3" /> Set budget alerts at $5, $10, and $20.</label></li>
+            <li><label><input type="checkbox" class="meta-task" data-id="starter-4" /> Turn on billing alerts and weekly cost review reminder.</label></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Weekly Milestones</h2>
+          <ul class="meta-checklist">
+            <li><label><input type="checkbox" class="meta-task" data-id="week-1" /> Week 1 complete: IAM + EC2 + S3 basics are clear.</label></li>
+            <li><label><input type="checkbox" class="meta-task" data-id="week-2" /> Week 2 complete: Networking + databases + monitoring done.</label></li>
+            <li><label><input type="checkbox" class="meta-task" data-id="week-3" /> Week 3 complete: Serverless + IaC + CI/CD touched.</label></li>
+            <li><label><input type="checkbox" class="meta-task" data-id="week-4" /> Week 4 complete: Capstone built and documented.</label></li>
+          </ul>
+        </article>
       </section>
 
       <section>
@@ -43,6 +69,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d1-s2" data-day="1" /> Create your AWS free-tier account using a personal email.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d1-s3" data-day="1" /> Enable MFA on the root account and save backup codes safely.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -56,6 +86,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d2-s2" data-day="2" /> In AWS console, switch between at least 2 regions.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d2-s3" data-day="2" /> Read why low latency and high availability depend on region design.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -69,6 +103,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d3-s2" data-day="3" /> Create a budget alert (for example $5 and $10).</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d3-s3" data-day="3" /> Learn free-tier limits to avoid unexpected charges.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -82,6 +120,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d4-s2" data-day="4" /> Create one IAM user with console access.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d4-s3" data-day="4" /> Attach a minimal policy and test permissions.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -95,6 +137,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d5-s2" data-day="5" /> Create an IAM role and switch role in the console.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d5-s3" data-day="5" /> Enable IAM password policy and rotate keys practice.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -108,6 +154,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d6-s2" data-day="6" /> Configure a security group for SSH/HTTP access safely.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d6-s3" data-day="6" /> Connect to the instance and run a basic command.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -121,6 +171,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d7-s2" data-day="7" /> Understand AMI, EBS volume, and key pair lifecycle.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d7-s3" data-day="7" /> Stop and start your EC2 and observe IP behavior.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -134,6 +188,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d8-s2" data-day="8" /> Upload files, create folders, and test object URLs.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d8-s3" data-day="8" /> Enable versioning and lifecycle rule on sample data.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -147,6 +205,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d9-s2" data-day="9" /> Add bucket policy for public read (only test bucket).</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d9-s3" data-day="9" /> Open website endpoint and verify index/error pages.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -160,6 +222,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d10-s2" data-day="10" /> Draw a simple network diagram with public/private subnets.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d10-s3" data-day="10" /> Understand why NAT gateway is used for private subnet internet.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -173,6 +239,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d11-s2" data-day="11" /> Attach internet gateway and update public route table.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d11-s3" data-day="11" /> Launch one EC2 in public subnet and test access.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -186,6 +256,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d12-s2" data-day="12" /> Read Aurora benefits and when it is preferred.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d12-s3" data-day="12" /> Write 5 example app cases and pick best database type.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -199,6 +273,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d13-s2" data-day="13" /> Configure security group to allow DB connection from EC2 only.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d13-s3" data-day="13" /> Connect from EC2 and run create/select test query.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -212,6 +290,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d14-s2" data-day="14" /> Insert sample items and run Query and Scan.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d14-s3" data-day="14" /> Learn on-demand vs provisioned capacity modes.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -225,6 +307,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d15-s2" data-day="15" /> Create CPU utilization alarm with email notification.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d15-s3" data-day="15" /> Build one basic dashboard with 2-3 widgets.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -238,6 +324,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d16-s2" data-day="16" /> Create Auto Scaling Group with launch template.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d16-s3" data-day="16" /> Test scaling policy by generating CPU load.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -251,6 +341,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d17-s2" data-day="17" /> Create a simple Lambda function in console.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d17-s3" data-day="17" /> Test Lambda with built-in test events.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -264,6 +358,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d18-s2" data-day="18" /> Integrate API method with Lambda function.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d18-s3" data-day="18" /> Deploy API stage and test URL response.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -277,6 +375,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d19-s2" data-day="19" /> Create SQS queue and send/receive messages.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d19-s3" data-day="19" /> Understand EventBridge rule flow with one example.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -290,6 +392,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d20-s2" data-day="20" /> Store one sample secret in Secrets Manager.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d20-s3" data-day="20" /> Understand KMS keys and basic encrypt/decrypt flow.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -303,6 +409,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d21-s2" data-day="21" /> Deploy a stack that creates an S3 bucket.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d21-s3" data-day="21" /> Update the stack and then delete it safely.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -316,6 +426,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d22-s2" data-day="22" /> Write one tiny Terraform config for AWS resource.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d22-s3" data-day="22" /> Run plan/apply (or simulation) and document what happened.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -329,6 +443,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d23-s2" data-day="23" /> Create a simple pipeline from source to build step.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d23-s3" data-day="23" /> Trigger a change and watch pipeline execution.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -342,6 +460,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d24-s2" data-day="24" /> Push one Docker image to Amazon ECR.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d24-s3" data-day="24" /> Deploy a basic task/service on ECS Fargate.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -355,6 +477,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d25-s2" data-day="25" /> Understand EKS control plane and worker node model.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d25-s3" data-day="25" /> Follow one demo to deploy app on EKS conceptually.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -368,6 +494,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d26-s2" data-day="26" /> Review Savings Plans vs Reserved Instances basics.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d26-s3" data-day="26" /> Open Cost Explorer and identify top cost services.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -381,6 +511,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d27-s2" data-day="27" /> Compare multi-AZ and multi-region architectures.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d27-s3" data-day="27" /> Define RTO/RPO targets for a sample application.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -394,6 +528,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d28-s2" data-day="28" /> Draw architecture with chosen AWS services.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d28-s3" data-day="28" /> Create implementation checklist and timeline.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -407,6 +545,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d29-s2" data-day="29" /> Add monitoring, alarms, and IAM least privilege.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d29-s3" data-day="29" /> Write README with architecture and setup steps.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
 
@@ -420,6 +562,10 @@
                 <li><label><input type="checkbox" class="subtask" data-id="d30-s2" data-day="30" /> Publish portfolio post about your 30-day journey.</label></li>
                 <li><label><input type="checkbox" class="subtask" data-id="d30-s3" data-day="30" /> Pick certification path: CCP then SAA and set exam target date.</label></li>
               </ul>
+              <div class="notes-block">
+                <label>Day notes</label>
+                <textarea class="day-note" rows="3" placeholder="Write what you learned today, key commands, and doubts..."></textarea>
+              </div>
             </details>
           </li>
         </ul>

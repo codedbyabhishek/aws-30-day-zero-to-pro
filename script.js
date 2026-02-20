@@ -1,23 +1,53 @@
-const storageKey = "aws-30-day-zero-to-pro-progress-v2";
+const storageKey = "aws-30-day-zero-to-pro-progress-v3";
 const dayItems = Array.from(document.querySelectorAll(".day-item"));
 const dayToggles = Array.from(document.querySelectorAll(".day-toggle"));
 const subtaskCheckboxes = Array.from(document.querySelectorAll(".subtask"));
+const metaTasks = Array.from(document.querySelectorAll(".meta-task"));
+const notesFields = Array.from(document.querySelectorAll(".day-note"));
 const progressCount = document.getElementById("progressCount");
 const progressFill = document.getElementById("progressFill");
 const resetBtn = document.getElementById("resetBtn");
+const exportBtn = document.getElementById("exportBtn");
+const importBtn = document.getElementById("importBtn");
+const importFile = document.getElementById("importFile");
 
-function getSavedSubtasks() {
+function emptyState() {
+  return {
+    version: 1,
+    subtasks: [],
+    meta: [],
+    notes: {}
+  };
+}
+
+function normalizeState(raw) {
+  const base = emptyState();
+  if (!raw || typeof raw !== "object") return base;
+
+  base.subtasks = Array.isArray(raw.subtasks) ? raw.subtasks.map(String) : [];
+  base.meta = Array.isArray(raw.meta) ? raw.meta.map(String) : [];
+
+  if (raw.notes && typeof raw.notes === "object") {
+    Object.keys(raw.notes).forEach((key) => {
+      base.notes[String(key)] = String(raw.notes[key] ?? "");
+    });
+  }
+
+  return base;
+}
+
+function loadState() {
   try {
-    const parsed = JSON.parse(localStorage.getItem(storageKey) || "[]");
-    if (!Array.isArray(parsed)) return new Set();
-    return new Set(parsed.map(String));
+    const raw = localStorage.getItem(storageKey);
+    if (!raw) return emptyState();
+    return normalizeState(JSON.parse(raw));
   } catch (_) {
-    return new Set();
+    return emptyState();
   }
 }
 
-function saveSubtasks(doneSubtasks) {
-  localStorage.setItem(storageKey, JSON.stringify(Array.from(doneSubtasks)));
+function saveState(state) {
+  localStorage.setItem(storageKey, JSON.stringify(normalizeState(state)));
 }
 
 function getDaySubtasks(day) {
@@ -57,10 +87,21 @@ function updateProgress() {
 }
 
 function paintChecklist() {
-  const doneSubtasks = getSavedSubtasks();
+  const state = loadState();
+  const doneSubtasks = new Set(state.subtasks);
+  const doneMeta = new Set(state.meta);
 
   subtaskCheckboxes.forEach((subtask) => {
     subtask.checked = doneSubtasks.has(subtask.dataset.id);
+  });
+
+  metaTasks.forEach((meta) => {
+    meta.checked = doneMeta.has(meta.dataset.id);
+  });
+
+  notesFields.forEach((field) => {
+    const day = field.closest(".day-item")?.dataset.day;
+    field.value = day ? state.notes[day] || "" : "";
   });
 
   dayToggles.forEach((dayToggle) => {
@@ -72,13 +113,14 @@ function paintChecklist() {
 
 subtaskCheckboxes.forEach((subtask) => {
   subtask.addEventListener("change", () => {
-    const doneSubtasks = getSavedSubtasks();
-    const id = subtask.dataset.id;
+    const state = loadState();
+    const doneSubtasks = new Set(state.subtasks);
 
-    if (subtask.checked) doneSubtasks.add(id);
-    else doneSubtasks.delete(id);
+    if (subtask.checked) doneSubtasks.add(subtask.dataset.id);
+    else doneSubtasks.delete(subtask.dataset.id);
 
-    saveSubtasks(doneSubtasks);
+    state.subtasks = Array.from(doneSubtasks);
+    saveState(state);
     updateDayVisual(subtask.dataset.day);
     updateProgress();
   });
@@ -88,7 +130,8 @@ dayToggles.forEach((dayToggle) => {
   dayToggle.addEventListener("change", () => {
     const day = dayToggle.dataset.day;
     const daySubtasks = getDaySubtasks(day);
-    const doneSubtasks = getSavedSubtasks();
+    const state = loadState();
+    const doneSubtasks = new Set(state.subtasks);
 
     daySubtasks.forEach((subtask) => {
       subtask.checked = dayToggle.checked;
@@ -96,10 +139,70 @@ dayToggles.forEach((dayToggle) => {
       else doneSubtasks.delete(subtask.dataset.id);
     });
 
-    saveSubtasks(doneSubtasks);
+    state.subtasks = Array.from(doneSubtasks);
+    saveState(state);
     updateDayVisual(day);
     updateProgress();
   });
+});
+
+metaTasks.forEach((meta) => {
+  meta.addEventListener("change", () => {
+    const state = loadState();
+    const doneMeta = new Set(state.meta);
+
+    if (meta.checked) doneMeta.add(meta.dataset.id);
+    else doneMeta.delete(meta.dataset.id);
+
+    state.meta = Array.from(doneMeta);
+    saveState(state);
+  });
+});
+
+notesFields.forEach((field) => {
+  field.addEventListener("input", () => {
+    const day = field.closest(".day-item")?.dataset.day;
+    if (!day) return;
+
+    const state = loadState();
+    state.notes[day] = field.value;
+    saveState(state);
+  });
+});
+
+exportBtn.addEventListener("click", () => {
+  const state = loadState();
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    ...state
+  };
+
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "aws-30-day-progress.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+
+importBtn.addEventListener("click", () => {
+  importFile.value = "";
+  importFile.click();
+});
+
+importFile.addEventListener("change", async () => {
+  const file = importFile.files?.[0];
+  if (!file) return;
+
+  try {
+    const text = await file.text();
+    const parsed = JSON.parse(text);
+    const state = normalizeState(parsed);
+    saveState(state);
+    paintChecklist();
+  } catch (_) {
+    alert("Invalid backup file. Please import a valid JSON export.");
+  }
 });
 
 resetBtn.addEventListener("click", () => {
@@ -108,4 +211,3 @@ resetBtn.addEventListener("click", () => {
 });
 
 paintChecklist();
-
