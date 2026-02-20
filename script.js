@@ -1,10 +1,12 @@
-const storageKey = "aws-30-day-zero-to-pro-progress-v1";
-const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"][data-day]'));
+const storageKey = "aws-30-day-zero-to-pro-progress-v2";
+const dayItems = Array.from(document.querySelectorAll(".day-item"));
+const dayToggles = Array.from(document.querySelectorAll(".day-toggle"));
+const subtaskCheckboxes = Array.from(document.querySelectorAll(".subtask"));
 const progressCount = document.getElementById("progressCount");
 const progressFill = document.getElementById("progressFill");
 const resetBtn = document.getElementById("resetBtn");
 
-function getSavedDays() {
+function getSavedSubtasks() {
   try {
     const parsed = JSON.parse(localStorage.getItem(storageKey) || "[]");
     if (!Array.isArray(parsed)) return new Set();
@@ -14,37 +16,88 @@ function getSavedDays() {
   }
 }
 
-function saveDays(doneDays) {
-  localStorage.setItem(storageKey, JSON.stringify(Array.from(doneDays)));
+function saveSubtasks(doneSubtasks) {
+  localStorage.setItem(storageKey, JSON.stringify(Array.from(doneSubtasks)));
 }
 
-function paintChecklist() {
-  const doneDays = getSavedDays();
-  checkboxes.forEach((checkbox) => {
-    const day = checkbox.dataset.day;
-    const done = doneDays.has(day);
-    checkbox.checked = done;
-    checkbox.closest("li").classList.toggle("done", done);
+function getDaySubtasks(day) {
+  return subtaskCheckboxes.filter((cb) => cb.dataset.day === String(day));
+}
+
+function updateDayVisual(day) {
+  const subtasks = getDaySubtasks(day);
+  const checked = subtasks.filter((cb) => cb.checked).length;
+  const allDone = subtasks.length > 0 && checked === subtasks.length;
+  const someDone = checked > 0 && !allDone;
+
+  const dayToggle = document.querySelector(`.day-toggle[data-day="${day}"]`);
+  const dayItem = document.querySelector(`.day-item[data-day="${day}"]`);
+
+  if (dayToggle) {
+    dayToggle.checked = allDone;
+    dayToggle.indeterminate = someDone;
+  }
+  if (dayItem) {
+    dayItem.classList.toggle("done", allDone);
+  }
+
+  subtasks.forEach((subtask) => {
+    const row = subtask.closest("li");
+    if (row) row.classList.toggle("done", subtask.checked);
   });
-  updateProgress();
 }
 
 function updateProgress() {
-  const completed = checkboxes.filter((cb) => cb.checked).length;
-  const total = checkboxes.length;
-  const pct = total === 0 ? 0 : Math.round((completed / total) * 100);
-  progressCount.textContent = `${completed}/${total} days complete (${pct}%)`;
+  const totalDays = dayToggles.length;
+  const completedDays = dayToggles.filter((cb) => cb.checked).length;
+  const pct = totalDays === 0 ? 0 : Math.round((completedDays / totalDays) * 100);
+
+  progressCount.textContent = `${completedDays}/${totalDays} days complete (${pct}%)`;
   progressFill.style.width = `${pct}%`;
 }
 
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", () => {
-    const day = checkbox.dataset.day;
-    const doneDays = getSavedDays();
-    if (checkbox.checked) doneDays.add(day);
-    else doneDays.delete(day);
-    checkbox.closest("li").classList.toggle("done", checkbox.checked);
-    saveDays(doneDays);
+function paintChecklist() {
+  const doneSubtasks = getSavedSubtasks();
+
+  subtaskCheckboxes.forEach((subtask) => {
+    subtask.checked = doneSubtasks.has(subtask.dataset.id);
+  });
+
+  dayToggles.forEach((dayToggle) => {
+    updateDayVisual(dayToggle.dataset.day);
+  });
+
+  updateProgress();
+}
+
+subtaskCheckboxes.forEach((subtask) => {
+  subtask.addEventListener("change", () => {
+    const doneSubtasks = getSavedSubtasks();
+    const id = subtask.dataset.id;
+
+    if (subtask.checked) doneSubtasks.add(id);
+    else doneSubtasks.delete(id);
+
+    saveSubtasks(doneSubtasks);
+    updateDayVisual(subtask.dataset.day);
+    updateProgress();
+  });
+});
+
+dayToggles.forEach((dayToggle) => {
+  dayToggle.addEventListener("change", () => {
+    const day = dayToggle.dataset.day;
+    const daySubtasks = getDaySubtasks(day);
+    const doneSubtasks = getSavedSubtasks();
+
+    daySubtasks.forEach((subtask) => {
+      subtask.checked = dayToggle.checked;
+      if (dayToggle.checked) doneSubtasks.add(subtask.dataset.id);
+      else doneSubtasks.delete(subtask.dataset.id);
+    });
+
+    saveSubtasks(doneSubtasks);
+    updateDayVisual(day);
     updateProgress();
   });
 });
@@ -55,3 +108,4 @@ resetBtn.addEventListener("click", () => {
 });
 
 paintChecklist();
+

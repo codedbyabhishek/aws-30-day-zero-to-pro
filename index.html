@@ -18,7 +18,7 @@
         <p class="eyebrow">Beginner Friendly</p>
         <h1>AWS in 30 Days: Zero to Professional</h1>
         <p class="subtitle">
-          Built for complete beginners. Follow this checklist daily and track your progress.
+          Built for complete beginners. Expand each day, follow the detailed steps, and track progress.
         </p>
         <div class="progress-wrap">
           <div class="progress-text">
@@ -33,95 +33,394 @@
 
       <section>
         <ul class="checklist" id="checklist">
-          <li>
-            <label><input type="checkbox" data-day="1" /> Day 1: What is cloud computing? What is AWS? Create your free AWS account and secure it with MFA.</label>
+          <li class="day-item" data-day="1">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="1" /> <span>Day 1: Cloud basics + create AWS account</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d1-s1" data-day="1" /> Watch a beginner video on cloud computing (IaaS, PaaS, SaaS).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d1-s2" data-day="1" /> Create your AWS free-tier account using a personal email.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d1-s3" data-day="1" /> Enable MFA on the root account and save backup codes safely.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="2" /> Day 2: Learn core AWS global infrastructure: Regions, Availability Zones, Edge Locations.</label>
+
+          <li class="day-item" data-day="2">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="2" /> <span>Day 2: AWS global infrastructure</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d2-s1" data-day="2" /> Learn what Regions, Availability Zones, and Edge Locations are.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d2-s2" data-day="2" /> In AWS console, switch between at least 2 regions.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d2-s3" data-day="2" /> Read why low latency and high availability depend on region design.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="3" /> Day 3: Understand pricing basics, billing dashboard, budgets, and free tier safety.</label>
+
+          <li class="day-item" data-day="3">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="3" /> <span>Day 3: Pricing, billing, and budget safety</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d3-s1" data-day="3" /> Open Billing Dashboard and understand monthly cost view.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d3-s2" data-day="3" /> Create a budget alert (for example $5 and $10).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d3-s3" data-day="3" /> Learn free-tier limits to avoid unexpected charges.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="4" /> Day 4: AWS Identity and Access Management (IAM): users, groups, roles, policies.</label>
+
+          <li class="day-item" data-day="4">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="4" /> <span>Day 4: IAM fundamentals</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d4-s1" data-day="4" /> Learn IAM users, groups, roles, and policies.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d4-s2" data-day="4" /> Create one IAM user with console access.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d4-s3" data-day="4" /> Attach a minimal policy and test permissions.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="5" /> Day 5: IAM hands-on: create least-privilege users and test role assumptions.</label>
+
+          <li class="day-item" data-day="5">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="5" /> <span>Day 5: IAM hands-on security</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d5-s1" data-day="5" /> Create separate IAM users for admin and developer use.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d5-s2" data-day="5" /> Create an IAM role and switch role in the console.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d5-s3" data-day="5" /> Enable IAM password policy and rotate keys practice.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="6" /> Day 6: Launch your first EC2 instance. Connect via browser or SSH.</label>
+
+          <li class="day-item" data-day="6">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="6" /> <span>Day 6: Launch first EC2 server</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d6-s1" data-day="6" /> Launch a free-tier EC2 instance (Amazon Linux).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d6-s2" data-day="6" /> Configure a security group for SSH/HTTP access safely.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d6-s3" data-day="6" /> Connect to the instance and run a basic command.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="7" /> Day 7: EC2 deep dive: instance types, AMIs, security groups, key pairs, EBS basics.</label>
+
+          <li class="day-item" data-day="7">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="7" /> <span>Day 7: EC2 deeper concepts</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d7-s1" data-day="7" /> Compare instance families (t, m, c) and use-cases.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d7-s2" data-day="7" /> Understand AMI, EBS volume, and key pair lifecycle.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d7-s3" data-day="7" /> Stop and start your EC2 and observe IP behavior.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="8" /> Day 8: Storage fundamentals: S3 buckets, objects, classes, lifecycle, versioning.</label>
+
+          <li class="day-item" data-day="8">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="8" /> <span>Day 8: S3 storage fundamentals</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d8-s1" data-day="8" /> Create an S3 bucket with proper naming and region.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d8-s2" data-day="8" /> Upload files, create folders, and test object URLs.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d8-s3" data-day="8" /> Enable versioning and lifecycle rule on sample data.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="9" /> Day 9: S3 hands-on: static website hosting, bucket policies, and public access settings.</label>
+
+          <li class="day-item" data-day="9">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="9" /> <span>Day 9: S3 website hosting and permissions</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d9-s1" data-day="9" /> Enable static website hosting in S3.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d9-s2" data-day="9" /> Add bucket policy for public read (only test bucket).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d9-s3" data-day="9" /> Open website endpoint and verify index/error pages.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="10" /> Day 10: Networking basics: VPC, subnets, route tables, internet gateway, NAT gateway concept.</label>
+
+          <li class="day-item" data-day="10">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="10" /> <span>Day 10: VPC networking concepts</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d10-s1" data-day="10" /> Learn VPC, subnet, route table, and internet gateway basics.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d10-s2" data-day="10" /> Draw a simple network diagram with public/private subnets.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d10-s3" data-day="10" /> Understand why NAT gateway is used for private subnet internet.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="11" /> Day 11: Build a custom VPC with public and private subnets.</label>
+
+          <li class="day-item" data-day="11">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="11" /> <span>Day 11: Build custom VPC</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d11-s1" data-day="11" /> Create a new VPC and 2 subnets (public + private).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d11-s2" data-day="11" /> Attach internet gateway and update public route table.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d11-s3" data-day="11" /> Launch one EC2 in public subnet and test access.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="12" /> Day 12: Databases overview: RDS, DynamoDB, Aurora. Understand when to use each.</label>
+
+          <li class="day-item" data-day="12">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="12" /> <span>Day 12: Database service selection</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d12-s1" data-day="12" /> Learn difference: RDS (SQL) vs DynamoDB (NoSQL).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d12-s2" data-day="12" /> Read Aurora benefits and when it is preferred.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d12-s3" data-day="12" /> Write 5 example app cases and pick best database type.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="13" /> Day 13: Create an RDS database and connect from EC2 securely.</label>
+
+          <li class="day-item" data-day="13">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="13" /> <span>Day 13: RDS hands-on</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d13-s1" data-day="13" /> Create free-tier RDS instance (MySQL or PostgreSQL).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d13-s2" data-day="13" /> Configure security group to allow DB connection from EC2 only.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d13-s3" data-day="13" /> Connect from EC2 and run create/select test query.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="14" /> Day 14: DynamoDB basics: tables, partition keys, read/write capacity, query vs scan.</label>
+
+          <li class="day-item" data-day="14">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="14" /> <span>Day 14: DynamoDB basics</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d14-s1" data-day="14" /> Create a DynamoDB table with partition key.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d14-s2" data-day="14" /> Insert sample items and run Query and Scan.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d14-s3" data-day="14" /> Learn on-demand vs provisioned capacity modes.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="15" /> Day 15: Monitoring with CloudWatch: metrics, logs, alarms, dashboards.</label>
+
+          <li class="day-item" data-day="15">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="15" /> <span>Day 15: CloudWatch monitoring</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d15-s1" data-day="15" /> Open CloudWatch and inspect EC2 metrics.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d15-s2" data-day="15" /> Create CPU utilization alarm with email notification.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d15-s3" data-day="15" /> Build one basic dashboard with 2-3 widgets.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="16" /> Day 16: Load balancing and scaling: ELB + Auto Scaling Groups.</label>
+
+          <li class="day-item" data-day="16">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="16" /> <span>Day 16: Load balancer + Auto Scaling</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d16-s1" data-day="16" /> Learn ALB, target groups, health checks.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d16-s2" data-day="16" /> Create Auto Scaling Group with launch template.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d16-s3" data-day="16" /> Test scaling policy by generating CPU load.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="17" /> Day 17: Serverless intro: Lambda, API Gateway, event-driven architecture.</label>
+
+          <li class="day-item" data-day="17">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="17" /> <span>Day 17: Serverless architecture intro</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d17-s1" data-day="17" /> Learn Lambda, API Gateway, event trigger model.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d17-s2" data-day="17" /> Create a simple Lambda function in console.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d17-s3" data-day="17" /> Test Lambda with built-in test events.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="18" /> Day 18: Build a simple Lambda function triggered by API Gateway.</label>
+
+          <li class="day-item" data-day="18">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="18" /> <span>Day 18: Build Lambda + API endpoint</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d18-s1" data-day="18" /> Create REST API in API Gateway.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d18-s2" data-day="18" /> Integrate API method with Lambda function.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d18-s3" data-day="18" /> Deploy API stage and test URL response.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="19" /> Day 19: Messaging services: SNS, SQS, EventBridge basics.</label>
+
+          <li class="day-item" data-day="19">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="19" /> <span>Day 19: SNS, SQS, EventBridge</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d19-s1" data-day="19" /> Create SNS topic and add your email subscription.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d19-s2" data-day="19" /> Create SQS queue and send/receive messages.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d19-s3" data-day="19" /> Understand EventBridge rule flow with one example.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="20" /> Day 20: Security services: KMS, Secrets Manager, AWS WAF, shared responsibility model.</label>
+
+          <li class="day-item" data-day="20">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="20" /> <span>Day 20: Security services and secrets</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d20-s1" data-day="20" /> Learn shared responsibility model with examples.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d20-s2" data-day="20" /> Store one sample secret in Secrets Manager.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d20-s3" data-day="20" /> Understand KMS keys and basic encrypt/decrypt flow.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="21" /> Day 21: Infrastructure as Code intro with CloudFormation.</label>
+
+          <li class="day-item" data-day="21">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="21" /> <span>Day 21: CloudFormation IaC basics</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d21-s1" data-day="21" /> Learn CloudFormation template structure (Resources/Outputs).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d21-s2" data-day="21" /> Deploy a stack that creates an S3 bucket.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d21-s3" data-day="21" /> Update the stack and then delete it safely.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="22" /> Day 22: Terraform vs CloudFormation overview; deploy one simple stack using IaC.</label>
+
+          <li class="day-item" data-day="22">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="22" /> <span>Day 22: Terraform vs CloudFormation</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d22-s1" data-day="22" /> Compare Terraform and CloudFormation at high level.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d22-s2" data-day="22" /> Write one tiny Terraform config for AWS resource.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d22-s3" data-day="22" /> Run plan/apply (or simulation) and document what happened.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="23" /> Day 23: CI/CD basics with CodeCommit, CodeBuild, CodeDeploy, CodePipeline.</label>
+
+          <li class="day-item" data-day="23">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="23" /> <span>Day 23: AWS CI/CD pipeline basics</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d23-s1" data-day="23" /> Learn CodePipeline, CodeBuild, CodeDeploy roles.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d23-s2" data-day="23" /> Create a simple pipeline from source to build step.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d23-s3" data-day="23" /> Trigger a change and watch pipeline execution.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="24" /> Day 24: Containers on AWS: ECS, ECR, Fargate overview.</label>
+
+          <li class="day-item" data-day="24">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="24" /> <span>Day 24: Containers with ECS and ECR</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d24-s1" data-day="24" /> Learn container basics: image, container, registry.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d24-s2" data-day="24" /> Push one Docker image to Amazon ECR.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d24-s3" data-day="24" /> Deploy a basic task/service on ECS Fargate.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="25" /> Day 25: Kubernetes on AWS: EKS overview and architecture basics.</label>
+
+          <li class="day-item" data-day="25">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="25" /> <span>Day 25: EKS and Kubernetes basics</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d25-s1" data-day="25" /> Learn Kubernetes objects: pod, deployment, service.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d25-s2" data-day="25" /> Understand EKS control plane and worker node model.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d25-s3" data-day="25" /> Follow one demo to deploy app on EKS conceptually.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="26" /> Day 26: Cost optimization techniques: rightsizing, savings plans, reserved instances, trusted advisor.</label>
+
+          <li class="day-item" data-day="26">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="26" /> <span>Day 26: Cost optimization practices</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d26-s1" data-day="26" /> Learn rightsizing and when to downsize resources.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d26-s2" data-day="26" /> Review Savings Plans vs Reserved Instances basics.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d26-s3" data-day="26" /> Open Cost Explorer and identify top cost services.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="27" /> Day 27: Reliability concepts: backup, disaster recovery, multi-AZ, multi-region strategy.</label>
+
+          <li class="day-item" data-day="27">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="27" /> <span>Day 27: Reliability and disaster recovery</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d27-s1" data-day="27" /> Learn backup strategy: snapshot, retention, restore tests.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d27-s2" data-day="27" /> Compare multi-AZ and multi-region architectures.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d27-s3" data-day="27" /> Define RTO/RPO targets for a sample application.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="28" /> Day 28: Capstone project planning: architecture diagram and service selection.</label>
+
+          <li class="day-item" data-day="28">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="28" /> <span>Day 28: Capstone architecture planning</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d28-s1" data-day="28" /> Choose project idea (for example blog, API, dashboard).</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d28-s2" data-day="28" /> Draw architecture with chosen AWS services.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d28-s3" data-day="28" /> Create implementation checklist and timeline.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="29" /> Day 29: Build and document your capstone (web app + database + monitoring + IAM best practices).</label>
+
+          <li class="day-item" data-day="29">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="29" /> <span>Day 29: Build and document capstone</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d29-s1" data-day="29" /> Build project components and connect services.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d29-s2" data-day="29" /> Add monitoring, alarms, and IAM least privilege.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d29-s3" data-day="29" /> Write README with architecture and setup steps.</label></li>
+              </ul>
+            </details>
           </li>
-          <li>
-            <label><input type="checkbox" data-day="30" /> Day 30: Final review, portfolio write-up, interview prep, and AWS certification path plan.</label>
+
+          <li class="day-item" data-day="30">
+            <details>
+              <summary>
+                <label class="day-label"><input type="checkbox" class="day-toggle" data-day="30" /> <span>Day 30: Final review + career roadmap</span></label>
+              </summary>
+              <ul class="subtasks">
+                <li><label><input type="checkbox" class="subtask" data-id="d30-s1" data-day="30" /> Review all weak topics and retake hands-on labs.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d30-s2" data-day="30" /> Publish portfolio post about your 30-day journey.</label></li>
+                <li><label><input type="checkbox" class="subtask" data-id="d30-s3" data-day="30" /> Pick certification path: CCP then SAA and set exam target date.</label></li>
+              </ul>
+            </details>
           </li>
         </ul>
       </section>
