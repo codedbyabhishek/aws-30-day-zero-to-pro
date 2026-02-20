@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWS 30-Day Zero-to-Pro Checklist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="hero">
+        <p class="eyebrow">Beginner Friendly</p>
+        <h1>AWS in 30 Days: Zero to Professional</h1>
+        <p class="subtitle">
+          Built for complete beginners. Follow this checklist daily and track your progress.
+        </p>
+        <div class="progress-wrap">
+          <div class="progress-text">
+            <span id="progressCount">0/30 days complete</span>
+            <button id="resetBtn" type="button">Reset Progress</button>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <ul class="checklist" id="checklist">
+          <li>
+            <label><input type="checkbox" data-day="1" /> Day 1: What is cloud computing? What is AWS? Create your free AWS account and secure it with MFA.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="2" /> Day 2: Learn core AWS global infrastructure: Regions, Availability Zones, Edge Locations.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="3" /> Day 3: Understand pricing basics, billing dashboard, budgets, and free tier safety.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="4" /> Day 4: AWS Identity and Access Management (IAM): users, groups, roles, policies.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="5" /> Day 5: IAM hands-on: create least-privilege users and test role assumptions.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="6" /> Day 6: Launch your first EC2 instance. Connect via browser or SSH.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="7" /> Day 7: EC2 deep dive: instance types, AMIs, security groups, key pairs, EBS basics.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="8" /> Day 8: Storage fundamentals: S3 buckets, objects, classes, lifecycle, versioning.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="9" /> Day 9: S3 hands-on: static website hosting, bucket policies, and public access settings.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="10" /> Day 10: Networking basics: VPC, subnets, route tables, internet gateway, NAT gateway concept.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="11" /> Day 11: Build a custom VPC with public and private subnets.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="12" /> Day 12: Databases overview: RDS, DynamoDB, Aurora. Understand when to use each.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="13" /> Day 13: Create an RDS database and connect from EC2 securely.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="14" /> Day 14: DynamoDB basics: tables, partition keys, read/write capacity, query vs scan.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="15" /> Day 15: Monitoring with CloudWatch: metrics, logs, alarms, dashboards.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="16" /> Day 16: Load balancing and scaling: ELB + Auto Scaling Groups.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="17" /> Day 17: Serverless intro: Lambda, API Gateway, event-driven architecture.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="18" /> Day 18: Build a simple Lambda function triggered by API Gateway.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="19" /> Day 19: Messaging services: SNS, SQS, EventBridge basics.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="20" /> Day 20: Security services: KMS, Secrets Manager, AWS WAF, shared responsibility model.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="21" /> Day 21: Infrastructure as Code intro with CloudFormation.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="22" /> Day 22: Terraform vs CloudFormation overview; deploy one simple stack using IaC.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="23" /> Day 23: CI/CD basics with CodeCommit, CodeBuild, CodeDeploy, CodePipeline.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="24" /> Day 24: Containers on AWS: ECS, ECR, Fargate overview.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="25" /> Day 25: Kubernetes on AWS: EKS overview and architecture basics.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="26" /> Day 26: Cost optimization techniques: rightsizing, savings plans, reserved instances, trusted advisor.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="27" /> Day 27: Reliability concepts: backup, disaster recovery, multi-AZ, multi-region strategy.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="28" /> Day 28: Capstone project planning: architecture diagram and service selection.</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="29" /> Day 29: Build and document your capstone (web app + database + monitoring + IAM best practices).</label>
+          </li>
+          <li>
+            <label><input type="checkbox" data-day="30" /> Day 30: Final review, portfolio write-up, interview prep, and AWS certification path plan.</label>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
